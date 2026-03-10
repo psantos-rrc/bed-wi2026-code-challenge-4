@@ -1,11 +1,11 @@
-import Project from "../../../models/interfaces"
+import Project, { projectsArray } from "../../../models/interfaces"
 
-export const getAllProjectsService = (): EventsCount => {
-    return {projects: projects, count: projects.length};
+export const getAllProjectsService = (): {} => {
+    return {projects: projectsArray, count: projectsArray.length};
 };
 
-export const getProjectByIdService = (id: number): Event | undefined => {
-    let project = projects.find(x => x.id == id)
+export const getProjectByIdService = (id: number): Project | undefined => {
+    let project = projectsArray.find(x => x.id == id)
 
     return project
 };

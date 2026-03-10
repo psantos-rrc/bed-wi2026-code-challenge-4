@@ -1,37 +1,37 @@
-import Joi, { ObjectSchema } from "joi";
+import Joi from "joi";
 
 // Post operation schemas organized by request part
-export const productSchemas = {
+export const projectSchemas = {
     // POST /posts - Create new post
-    create: {
-        body: Joi.object({
-            name: Joi.string().min(2).max(80).required().messages({
-                "any.required": "name is required",
-                "string.empty": "name cannot be empty",
-            }),
-            sku: Joi.string().pattern(/^[A-Z]{3}\d{4}$/).required().messages({
-                "any.required": "sku is required",
-                "string.empty": "sku cannot be empty",
-            }),
-            quantity: Joi.number().integer().min(0).required().messages({
-                "any.required": "quantity is required",
-                "string.empty": "quantity cannot be empty",
-            }),
-            price: Joi.number()
-                .positive()
-                .precision(2)
-                .prefs({ convert: false }) // Ensures validation fails if precision is more than 2
-                .required().messages({
-                    "any.required": "price is required",
-                    "string.empty": "price cannot be empty",
-                }),
-            category: Joi.string().valid('electronics', 'clothing', 'food', 'tools', 'other').required().messages({
-                "any.required": "category is required",
-                "string.empty": "category cannot be empty",
-            }),
+    // create: {
+    //     body: Joi.object({
+    //         name: Joi.string().min(2).max(80).required().messages({
+    //             "any.required": "name is required",
+    //             "string.empty": "name cannot be empty",
+    //         }),
+    //         sku: Joi.string().pattern(/^[A-Z]{3}\d{4}$/).required().messages({
+    //             "any.required": "sku is required",
+    //             "string.empty": "sku cannot be empty",
+    //         }),
+    //         quantity: Joi.number().integer().min(0).required().messages({
+    //             "any.required": "quantity is required",
+    //             "string.empty": "quantity cannot be empty",
+    //         }),
+    //         price: Joi.number()
+    //             .positive()
+    //             .precision(2)
+    //             .prefs({ convert: false }) // Ensures validation fails if precision is more than 2
+    //             .required().messages({
+    //                 "any.required": "price is required",
+    //                 "string.empty": "price cannot be empty",
+    //             }),
+    //         category: Joi.string().valid('electronics', 'clothing', 'food', 'tools', 'other').required().messages({
+    //             "any.required": "category is required",
+    //             "string.empty": "category cannot be empty",
+    //         }),
 
-        }),
-    },
+    //     }),
+    // },
 
     // GET /posts/:id - Get single post
     getById: {

@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { createProductService } from "../services/productServices"
+import { getAllProjectsService, getProjectByIdService } from "../services/projectServices"
 import {HTTP_STATUS} from "../../../constants/httpConstants"
 
 export const getAllProjects = (req: Request, res: Response) => {
