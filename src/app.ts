@@ -6,6 +6,7 @@ import {
 } from "./api/v1/middleware/logger";
 import errorHandler from "./api/v1/middleware/errorHandler";
 import router from "./api/v1/routes/projectRoutes";
+import adminRoutes from "./api/v1/routes/adminRoutes";
 
 const app = express();
 
@@ -24,6 +25,7 @@ app.use(express.json());
 
 // API Routes
 app.use("/api/v1", router);
+app.use("/api/v1", adminRoutes);
 
 app.get("/api/v1/health", (req, res) => {
     res.json({
@@ -33,7 +35,6 @@ app.get("/api/v1/health", (req, res) => {
         version: "1.0.0",
     });
 });
-
 
 // Global error handling middleware (MUST be applied last)
 app.use(errorHandler);
