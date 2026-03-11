@@ -13,7 +13,7 @@ export const getProjectById = (req: Request, res: Response) => {
     let id = Number(req.params.id)
 
     if (Number.isNaN(id)) {
-        res.status(HTTP_STATUS.BAD_REQUEST).json({ error: "id must be convertible toi number" });
+        res.status(HTTP_STATUS.BAD_REQUEST).json({ error: "id must be convertible to number" });
         return;
     }
 
